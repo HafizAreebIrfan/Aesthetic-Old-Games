@@ -279,7 +279,7 @@ const secondbatinning = (runscore) => {
   notice.innerText = "";
   target.innerText = "";
   aishot.innerText = "";
-  defend.style.visibility = "hidden";
+  defend.style.display = "none";
   enableShotButtons();
   aibatting(defendruns);
 };
@@ -293,7 +293,7 @@ const secondballinning = (runscore) => {
   notice.innerText = "";
   target.innerText = "";
   aishot.innerText = "";
-  chase.style.visibility = "hidden";
+  chase.style.display = "none";
   enableShotButtons();
   aibowling(chaseruns);
 };
@@ -317,7 +317,7 @@ const handleAIBatting = (defendruns, btn) => {
   const userselect = parseInt(btn.innerText);
   const aiselect = parseInt(aishotselection());
   aishot.innerText = `AI chosen ${aiselect}`;
-  secondinnings.style.visibility = "visible";
+  secondinnings.style.display = "flex";
   ballscore++;
   ballscorenum.innerText = ballscore.toString();
   if (aiselect !== userselect) {
@@ -398,7 +398,7 @@ const handleAIbowling = (chaseruns, btn) => {
   const userselect = parseInt(btn.innerText);
   const aiselect = parseInt(aishotselection());
   aishot.innerText = `AI chosen ${aiselect}`;
-  secondinnings.style.visibility = "visible";
+  secondinnings.style.display = "flex";
 
   ballscore++;
   ballscorenum.innerText = ballscore.toString();
@@ -476,6 +476,7 @@ const playagain = () => {
     shottitle.classList.add("hide");
     result.classList.add("hide");
     playbtn.classList.add("hide");
+    gamecontainer.classList.remove("move-to-top");
   };
 };
 

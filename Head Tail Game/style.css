@@ -183,7 +183,6 @@
     transition: 0.3s ease;
 } 
 .gamecontainer .playagain{
-    margin-top: 30px;
     padding: 15px;
     background-color: black;
     color: white;
@@ -201,6 +200,7 @@
     justify-content: center;
     margin-top: 30px;
     transition: 0.3s ease;
+    margin-bottom: 30px;
 }
 .gamecontainer .results .user,
 .gamecontainer .results .ai{
