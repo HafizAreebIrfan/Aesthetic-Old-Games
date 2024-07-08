@@ -144,9 +144,9 @@ bat.addEventListener("click", () => {
   selectiontitle.classList.add("hide");
   selection.classList.add("hide");
   score.classList.remove("hide");
-  secondinnings.style.visibility = "hidden";
-  defend.style.visibility = "hidden";
-  chase.style.visibility = "hidden";
+  secondinnings.display = "none";
+  defend.style.display = "none";
+  chase.style.display = "none";
   gamecontainer.classList.add("move-to-top");
   hideSelectionsmsg();
   notice.innerText = `NOTE: This is one over game. You selected to ${userbat} first. Try to bat nice and put high on the board.`;
@@ -161,9 +161,9 @@ ball.addEventListener("click", () => {
   selectiontitle.classList.add("hide");
   selection.classList.add("hide");
   score.classList.remove("hide");
-  secondinnings.style.visibility = "hidden";
-  defend.style.visibility = "hidden";
-  chase.style.visibility = "hidden";
+  secondinnings.display = "none";
+  defend.style.display = "none";
+  chase.style.display = "none";
   gamecontainer.classList.add("move-to-top");
   hideSelectionsmsg();
   notice.innerText = `NOTE: This is one over game. You selected to ${userball} first. Try to restrict AI as low as possible.`;
@@ -203,7 +203,7 @@ const handleUserBatting = (btn) => {
   const userselect = parseInt(btn.innerText);
   const aiselect = parseInt(aishotselection());
   aishot.innerText = `AI chosen ${aiselect}`;
-  secondinnings.style.visibility = "visible";
+  secondinnings.style.display = "block";
   if (userselect === aiselect) {
     target.innerText = `Oh no, AI restricted you to ${runscore} runs.`;
     ballscorenum.innerText = "0";
@@ -213,7 +213,7 @@ const handleUserBatting = (btn) => {
     runscore++;
     target.innerText += ` You need to defend ${runscore} runs in 6 balls`;
     disableShotButtons();
-    defend.style.visibility = "visible";
+    defend.style.display = "block";
     defend.onclick = () => {
       secondbatinning(runscore);
     };
@@ -227,7 +227,7 @@ const handleUserBatting = (btn) => {
       runscore++;
       target.innerText = `Over ends, You need to defend ${runscore} runs in 6 balls`;
       disableShotButtons();
-      defend.style.visibility = "visible";
+      defend.style.display = "block";
       defend.onclick = () => {
         secondbatinning(runscore);
       };
@@ -239,7 +239,7 @@ const handleUserBowling = (btn) => {
   const userselect = parseInt(btn.innerText);
   const aiselect = parseInt(aishotselection());
   aishot.innerText = `AI chosen ${aiselect}`;
-  secondinnings.style.visibility = "visible";
+  secondinnings.style.display = "block";
   if (aiselect === userselect) {
     target.innerText = `Hurray, You restricted AI to ${runscore} runs.`;
     ballscorenum.innerText = "0";
@@ -249,7 +249,7 @@ const handleUserBowling = (btn) => {
     runscore++;
     target.innerText += ` You need to chase ${runscore} runs in 6 balls`;
     disableShotButtons();
-    chase.style.visibility = "visible";
+    chase.style.display = "block";
     chase.onclick = () => {
       secondballinning(runscore);
     };
@@ -263,7 +263,7 @@ const handleUserBowling = (btn) => {
       runscore++;
       target.innerText = `Over ends, You need to chase ${runscore} runs in 6 balls`;
       disableShotButtons();
-      chase.style.visibility = "visible";
+      chase.style.display = "block";
       chase.onclick = () => {
         secondballinning(runscore);
       };
@@ -337,6 +337,7 @@ const handleAIBatting = (defendruns, btn) => {
     aiwinsum.innerText = `${aiwin}`;
     draws.innerText = `${draw}`;
     disableShotButtons();
+    rstatus.classList.remove("hide");
     playgameagain();
   }
   if (runscore > defendruns) {
@@ -348,6 +349,7 @@ const handleAIBatting = (defendruns, btn) => {
     aiwinsum.innerText = `${aiwin}`;
     draws.innerText = `${draw}`;
     disableShotButtons();
+    rstatus.classList.remove("hide");
     playgameagain();
   } else if (ballscore === 6 && runscore < defendruns) {
     target.innerText = `Hurray!! You beat AI by ${runscore} run(s)`;
@@ -358,6 +360,7 @@ const handleAIBatting = (defendruns, btn) => {
     aiwinsum.innerText = `${aiwin}`;
     draws.innerText = `${draw}`;
     disableShotButtons();
+    rstatus.classList.remove("hide");
     playgameagain();
   }else if(defendruns === runscore && ballscore === 6 && aiselect === userselect){
     target.innerText = `That Was Close. You Bowled Well`;
@@ -368,6 +371,7 @@ const handleAIBatting = (defendruns, btn) => {
     aiwinsum.innerText = `${aiwin}`;
     draws.innerText = `${draw}`;
     disableShotButtons();
+    rstatus.classList.remove("hide");
     playgameagain();
   }
 };
@@ -408,6 +412,7 @@ const handleAIbowling = (chaseruns, btn) => {
     aiwinsum.innerText = `${aiwin}`;
     draws.innerText = `${draw}`;
     disableShotButtons();
+    rstatus.classList.remove("hide");
     playgameagain();
   }
   if (runscore > chaseruns) {
@@ -419,6 +424,7 @@ const handleAIbowling = (chaseruns, btn) => {
     aiwinsum.innerText = `${aiwin}`;
     draws.innerText = `${draw}`;
     disableShotButtons();
+    rstatus.classList.remove("hide");
     playgameagain();
   } else if (ballscore === 6 && runscore < chaseruns) {
     target.innerText = `Oh no!! AI beat you by ${chaseruns - runscore} run(s)`;
@@ -429,6 +435,7 @@ const handleAIbowling = (chaseruns, btn) => {
     aiwinsum.innerText = `${aiwin}`;
     draws.innerText = `${draw}`;
     disableShotButtons();
+    rstatus.classList.remove("hide");
     playgameagain();
   }else if(defendruns === runscore && ballscore === 6 && aiselect === userselect){
     target.innerText = `That Was Close. You Bowled Well`;
@@ -439,6 +446,7 @@ const handleAIbowling = (chaseruns, btn) => {
     aiwinsum.innerText = `${aiwin}`;
     draws.innerText = `${draw}`;
     disableShotButtons();
+    rstatus.classList.remove("hide");
     playgameagain();
   }
 };
