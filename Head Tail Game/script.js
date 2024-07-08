@@ -36,7 +36,6 @@ const aiwinsum = document.querySelector(".aiwins");
 const draws = document.querySelector(".draws");
 let result = document.querySelector(".results");
 
-
 const aishotselection = () => {
   const selectoptions = [1, 2, 3, 4, 5, 6];
   const randIdx = Math.floor(Math.random() * 6);
@@ -90,16 +89,16 @@ const usertossedhead = (usertoss, coinflipped) => {
     gamecontainer.classList.add("move-to-top");
     hideSelectionsmsg();
     notice.innerText = `NOTE: This is one over game. Ai selected to ${aiselection} first.`;
-    secondinnings.style.visibility = "hidden";
-    defend.style.visibility = "hidden";
-    chase.style.visibility = "hidden";
+    secondinnings.display = "none";
+    defend.style.display = "none";
+    chase.style.display = "none";
     if (aiselection === "bat") {
       notice.innerText += "Try to restrict AI as early as possible.";
-      secondinnings.style.visibility = "visible";
+      secondinnings.style.display = "flex";
       userbowling();
     } else {
       notice.innerText += "Try to bat nice and put high on the board.";
-      secondinnings.style.visibility = "visible";
+      secondinnings.style.display = "flex";
       userbatting();
     }
   }
@@ -121,16 +120,16 @@ const usertossedtail = (usertoss, coinflipped) => {
     gamecontainer.classList.add("move-to-top");
     hideSelectionsmsg();
     notice.innerText = `NOTE: This is one over game. Ai selected to ${aiselection} first.`;
-    secondinnings.style.visibility = "hidden";
-    defend.style.visibility = "hidden";
-    chase.style.visibility = "hidden";
+    secondinnings.display = "none";
+    defend.style.display = "none";
+    chase.style.display = "none";
     if (aiselection === "bat") {
       notice.innerText += "Try to restrict AI as early as possible.";
-      secondinnings.style.visibility = "visible";
+      secondinnings.style.display = "flex";
       userbowling();
     } else {
       notice.innerText += "Try to bat nice and put high on the board.";
-      secondinnings.style.visibility = "visible";
+      secondinnings.style.display = "flex";
       userbatting();
     }
   }
@@ -203,7 +202,7 @@ const handleUserBatting = (btn) => {
   const userselect = parseInt(btn.innerText);
   const aiselect = parseInt(aishotselection());
   aishot.innerText = `AI chosen ${aiselect}`;
-  secondinnings.style.display = "block";
+  secondinnings.style.display = "flex";
   if (userselect === aiselect) {
     target.innerText = `Oh no, AI restricted you to ${runscore} runs.`;
     ballscorenum.innerText = "0";
@@ -239,7 +238,7 @@ const handleUserBowling = (btn) => {
   const userselect = parseInt(btn.innerText);
   const aiselect = parseInt(aishotselection());
   aishot.innerText = `AI chosen ${aiselect}`;
-  secondinnings.style.display = "block";
+  secondinnings.style.display = "flex";
   if (aiselect === userselect) {
     target.innerText = `Hurray, You restricted AI to ${runscore} runs.`;
     ballscorenum.innerText = "0";
@@ -362,7 +361,11 @@ const handleAIBatting = (defendruns, btn) => {
     draws.innerText = `${draw}`;
     disableShotButtons();
     playagain();
-  }else if(defendruns === runscore && ballscore === 6 && aiselect === userselect){
+  } else if (
+    defendruns === runscore &&
+    ballscore === 6 &&
+    aiselect === userselect
+  ) {
     target.innerText = `That Was Close. You Bowled Well`;
     notice.innerText = `Match Drawn. AI made ${runscore} run(s)`;
     result.classList.remove("hide");
@@ -437,7 +440,11 @@ const handleAIbowling = (chaseruns, btn) => {
     draws.innerText = `${draw}`;
     disableShotButtons();
     playagain();
-  }else if(defendruns === runscore && ballscore === 6 && aiselect === userselect){
+  } else if (
+    defendruns === runscore &&
+    ballscore === 6 &&
+    aiselect === userselect
+  ) {
     target.innerText = `That Was Close. You Bowled Well`;
     notice.innerText = `Match Drawn. AI made ${runscore} run(s)`;
     result.classList.remove("hide");
@@ -465,6 +472,10 @@ const playagain = () => {
     tosstitle.style.display = "block";
     selection.classList.add("hide");
     selectiontitle.classList.add("hide");
+    score.classList.add("hide");
+    shottitle.classList.add("hide");
+    result.classList.add("hide");
+    playbtn.classList.add("hide");
   };
 };
 
