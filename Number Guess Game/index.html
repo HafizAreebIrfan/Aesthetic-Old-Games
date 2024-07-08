@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <title>Number Guess Game</title>
+  </head>
+  <body>
+   
+    <section id="numberguessgame">
+      <h1>Welcome To Number Guess Game</h1>
+      <p>
+        The AI will guess a number from 1 - 100 every time u refresh, lose aur
+        win.
+      </p>
+      <div class="row">
+        <div class="userinput">
+          <input class="usernum" type="number" placeholder="Enter a number from 1 - 100"/>
+          <input class="submit" type="submit" placeholder="" >
+        </div>
+        <div class="score">
+          <div class="user">
+            <h4 class="userscore">0</h4>
+            <p>User</p>
+          </div>
+          <div class="ai">
+            <h4 class="aiscore">0</h4>
+            <p>AI</p>
+          </div>
+        </div>
+        <div class="status hide">
+          <h4 class="msg"></h4>
+          <h4 class="aivalue"></h4>
+          <h4 class="resultshow"></h4>
+          <buton class="playagain">Play Again</buton>
+        </div>
+        
+      </div>
+    </section>
+    <script src="script.js"></script>
+  </body>
+</html>

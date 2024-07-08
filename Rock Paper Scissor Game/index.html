@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <title>Rock Paper Scissor Game</title>
+  </head>
+  <body>
+    <section id="rockpaperscissor">
+      <h1>Welcome To Rock Paper Scissor Game</h1>
+      <div class="row">
+        <div class="gamecontainer">
+          <div class="selection">
+            <button class="btn" id="rock">
+              <i class="fa fa-hand-rock-o" aria-hidden="true"></i>
+            </button>
+            <button class="btn" id="paper">
+              <i class="fa fa-hand-paper-o" aria-hidden="true"></i>
+            </button>
+            <button class="btn" id="scissor">
+              <i class="fa fa-scissors" aria-hidden="true"></i>
+            </button>
+          </div>
+          <div class="score">
+            <div class="user">
+              <h4 class="userscore">0</h4>
+              <p>User</p>
+            </div>
+            <div class="computer">
+              <h4 class="compscore">0</h4>
+              <p>Computer</p>
+            </div>
+          </div>
+          <div class="status">
+            <h4 class="msg">Play Your Move</h4>
+            <h4 class="compoption hide"></h4>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script src="script.js"></script>
+  </body>
+</html>

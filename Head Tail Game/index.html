@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <title>JAVASCRIPT COURSE</title>
+  </head>
+  <body>
+  
+    <section id="headtailgame">
+      <h1>Welcome To Head Tail Game</h1>
+      <div class="gamecontainer">
+        <div class="toss">
+          <h4 class="tosstitle">Choose Head or Tail</h4>
+          <div class="coins">
+            <img class="head" src="./assets/headcoin.png" alt="" />
+            <img class="tail" src="./assets/tailcoin.png" alt="" />
+          </div>
+          <h4 class="userselectmsg"></h4>
+          <h4 class="selecttitle hide">What would you like to do?</h4>
+          <div class="selection hide">
+            <img class="bat" src="./assets/headcoin.png" alt="" />
+            <img class="ball" src="./assets/tailcoin.png" alt="" />
+          </div>
+          <h4 class="aiselectmsg"></h4>
+        </div>
+
+        <div class="score hide">
+          <div class="shotrangeselection">
+            <h4 class="notice"></h4>
+            <h4 class="shottitle">Select your move</h4>
+            <button class="shotbtn" id="1">1</button>
+            <button class="shotbtn" id="2">2</button>
+            <button class="shotbtn" id="3">3</button>
+            <button class="shotbtn" id="4">4</button>
+            <button class="shotbtn" id="5">5</button>
+            <button class="shotbtn" id="6">6</button>
+            <h4 class="aishot"></h4>
+          </div>
+          <div class="scores">
+            <div class="run">
+              <h4 class="runscore">0</h4>
+              <p>Run</p>
+            </div>
+            <div class="ball">
+              <h4 class="ballscore">0</h4>
+              <p>Ball</p>
+            </div>
+          </div>
+          <h4 class="target"></h4>
+          <div class="secondinnings">
+          <button class="defend">Defend</button>
+          <button class="chase">Chase</button>
+        </div>
+        </div>
+        <div class="status hide">
+          <h4 class="msg"></h4>
+          <buton class="playagain">Play Again</buton>
+        </div>
+      </div>
+    </section>
+
+    <script src="script.js"></script>
+  </body>
+</html>
