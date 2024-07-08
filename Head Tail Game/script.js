@@ -479,8 +479,20 @@ const playagain = () => {
     result.classList.add("hide");
     playgameagain.classList.add("hide");
     gamecontainer.classList.remove("move-to-top");
+    aiselectmsg.classList.add("hide");
+    userselectmsg.classList.add("hide");
   };
 };
+head.addEventListener("click", () => {
+  const usertoss = head.getAttribute("class");
+  const coinflipped = coinflip();
+  usertossedhead(usertoss, coinflipped);
+});
 
+tail.addEventListener("click", () => {
+  const usertoss = tail.getAttribute("class");
+  const coinflipped = coinflip();
+  usertossedtail(usertoss, coinflipped);
+});
 
 /*---------END----------*/
