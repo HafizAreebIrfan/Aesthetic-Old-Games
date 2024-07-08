@@ -58,14 +58,14 @@ const result = (userinput, AIChoice) => {
 }
 
 const compchoice = () => {
-    const randval = Math.floor(Math.random() * 100)+1;
+    const randval = Math.floor(Math.random() * 20)+1;
     return randval;
 };
 
 userinputsubmit.addEventListener("click", () => {
     let userinput = userinputval.valueAsNumber;
     if(userinput > 100 || userinput < 1){
-        msg.innerText = "Enter number from 1 - 100 only";
+        msg.innerText = "Enter number from 1 - 20 only";
         rstatus.classList.remove("hide");
         userinputval.value = "";
         userinputval.disabled = true;
