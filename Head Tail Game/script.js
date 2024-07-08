@@ -70,7 +70,13 @@ const hideSelectionsmsg = () => {
   setTimeout(() => {
     aiselectmsg.classList.add("hide");
     userselectmsg.classList.add("hide");
-  }, 5000);
+  }, 3000);
+};
+const showselectionmsg = () => {
+  setTimeout(() => {
+    aiselectmsg.classList.remove("hide");
+    userselectmsg.classList.remove("hide");
+  }, 500);
 };
 
 const usertossedhead = (usertoss, coinflipped) => {
@@ -485,7 +491,7 @@ const playagain = () => {
     tail.removeEventListener("click", tailClickListener);
     head.addEventListener("click", headClickListener);
     tail.addEventListener("click", tailClickListener);
-    hideSelectionsmsg();
+    showselectionmsg();
     const headClickListener = () => {
       const usertoss = head.getAttribute("class");
       const coinflipped = coinflip();
