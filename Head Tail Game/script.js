@@ -487,23 +487,48 @@ const playagain = () => {
     gamecontainer.classList.remove("move-to-top");
     aiselectmsg.innerText = "";
     userselectmsg.innerText = "";
-    head.removeEventListener("click", headClickListener);
-    tail.removeEventListener("click", tailClickListener);
-    head.addEventListener("click", headClickListener);
-    tail.addEventListener("click", tailClickListener);
-    showselectionmsg();
-    const headClickListener = () => {
+    // Resetting toss selection messages
+    aiselectmsg.classList.add("hide");
+    userselectmsg.classList.add("hide");
+    
+    // Removing and re-adding event listeners for the toss
+    const headClone = head.cloneNode(true);
+    const tailClone = tail.cloneNode(true);
+
+    head.parentNode.replaceChild(headClone, head);
+    tail.parentNode.replaceChild(tailClone, tail);
+
+    head = headClone;
+    tail = tailClone;
+
+    head.addEventListener("click", () => {
       const usertoss = head.getAttribute("class");
       const coinflipped = coinflip();
       usertossedhead(usertoss, coinflipped);
-    };
-    
-    const tailClickListener = () => {
+    });
+
+    tail.addEventListener("click", () => {
       const usertoss = tail.getAttribute("class");
       const coinflipped = coinflip();
       usertossedtail(usertoss, coinflipped);
-    };
+    });
+
+    // Hide selections message after 5 seconds
+    hideSelectionsmsg();
   };
 };
+
+// Initial event listener attachment
+head.addEventListener("click", () => {
+  const usertoss = head.getAttribute("class");
+  const coinflipped = coinflip();
+  usertossedhead(usertoss, coinflipped);
+});
+
+tail.addEventListener("click", () => {
+  const usertoss = tail.getAttribute("class");
+  const coinflipped = coinflip();
+  usertossedtail(usertoss, coinflipped);
+});
 
 /*---------END----------*/
