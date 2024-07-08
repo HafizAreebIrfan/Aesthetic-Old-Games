@@ -66,12 +66,12 @@ tail.addEventListener("click", () => {
   usertossedtail(usertoss, coinflipped);
 });
 
-// const hideSelectionsmsg = () => {
-//   setTimeout(() => {
-//     aiselectmsg.classList.add("hide");
-//     userselectmsg.classList.add("hide");
-//   }, 3000);
-// };
+const hideSelectionsmsg = () => {
+  setTimeout(() => {
+    aiselectmsg.classList.add("hide");
+    userselectmsg.classList.add("hide");
+  }, 3000);
+};
 
 const usertossedhead = (usertoss, coinflipped) => {
   if (usertoss === coinflipped) {
