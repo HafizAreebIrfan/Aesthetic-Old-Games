@@ -1,230 +1,304 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    list-style: none;
-    text-decoration: none;
-    scroll-behavior: smooth;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+  scroll-behavior: smooth;
 }
 
-#headtailgame{
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    height: 100vh;
-    position: relative;
-    transition: 0.3s ease;
+#headtailgame {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  height: 100vh;
+  position: relative;
+  transition: 0.3s ease;
 }
-#headtailgame h1{
-    background-color: #eeeeee;
-    padding: 20px;
-    font-size: 35px;
-    font-weight: 700;
-    font-family: 'Poppins', sans-serif;
-    text-align: center;
-    margin: 0;
-    transition: 0.3s ease;
+#headtailgame h1 {
+  background-color: #eeeeee;
+  padding: 20px;
+  font-size: 35px;
+  font-weight: 700;
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+  margin: 0;
+  transition: 0.3s ease;
 }
 .gamecontainer {
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    transition: 0.3s ease;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s ease;
 }
 .move-to-top {
-    align-items: center;
-    justify-content: flex-start; 
-    margin-top: 20px; 
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 20px;
 }
-.gamecontainer .toss .coins{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 20px;
-    transition: 0.3s ease;
+.gamecontainer .toss .coins {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  transition: 0.3s ease;
 }
 .gamecontainer .toss .coins img,
-.gamecontainer .toss .selection img{
-    width: 80px;
-    height: 80px;
-    margin-right: 50px;
-    cursor: pointer;
-    margin-top: 20px;
-    transition: 0.3s ease;
+.gamecontainer .toss .selection img {
+  width: 80px;
+  height: 80px;
+  margin-right: 50px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: 0.3s ease;
 }
-.gamecontainer .toss h4{
-    text-align: center;
-    font-size: 35px;
-    font-weight: 700;
-    font-family: 'Poppins', sans-serif;
-    transition: 0.3s ease;
+.gamecontainer .toss h4 {
+  text-align: center;
+  font-size: 35px;
+  font-weight: 700;
+  font-family: "Poppins", sans-serif;
+  transition: 0.3s ease;
 }
-.gamecontainer .score .shotrangeselection{
-    margin-top: 20px;
-    transition: 0.3s ease;
+.gamecontainer .score .shotrangeselection {
+  margin-top: 20px;
+  transition: 0.3s ease;
 }
-.gamecontainer .score .shotrangeselection .shottitle{
-    text-align: center;
-    font-size: 35px;
-    font-weight: 700;
-    font-family: 'Poppins', sans-serif;
-    margin-bottom: 20px;
-    transition: 0.3s ease;
+.gamecontainer .score .shotrangeselection .shottitle {
+  text-align: center;
+  font-size: 35px;
+  font-weight: 700;
+  font-family: "Poppins", sans-serif;
+  margin-bottom: 20px;
+  transition: 0.3s ease;
 }
-.gamecontainer .score .shotrangeselection .notice{
-    text-align: center;
-    font-size: 24px;
-    font-weight: 700;
-    font-family: 'Poppins', sans-serif;
-    margin-bottom: 20px;
-    transition: 0.3s ease;
+.gamecontainer .score .shotrangeselection .notice {
+  text-align: center;
+  font-size: 24px;
+  font-weight: 700;
+  font-family: "Poppins", sans-serif;
+  margin-bottom: 20px;
+  transition: 0.3s ease;
 }
-.gamecontainer .score .shotrangeselection .aishot{
-    text-align: center;
-    font-size: 24px;
-    font-weight: 700;
-    font-family: 'Poppins', sans-serif;
-    margin-block: 20px;
-    transition: 0.3s ease;
+.gamecontainer .score .shotrangeselection .aishot {
+  text-align: center;
+  font-size: 24px;
+  font-weight: 700;
+  font-family: "Poppins", sans-serif;
+  margin-block: 20px;
+  transition: 0.3s ease;
 }
-.gamecontainer .score .target{
-    text-align: center;
-    font-size: 24px;
-    font-weight: 700;
-    font-family: 'Poppins', sans-serif;
-    margin-block: 20px;
-    transition: 0.3s ease;
+.gamecontainer .score .target {
+  text-align: center;
+  font-size: 24px;
+  font-weight: 700;
+  font-family: "Poppins", sans-serif;
+  margin-block: 20px;
+  transition: 0.3s ease;
 }
-.gamecontainer .score .shotrangeselection .shotbtn{
-    padding: 20px;
-    border: none;
-    border-radius: 10px;
-    margin-right: 10px;
-    cursor: pointer;
-    font-size: 20px;
-    font-family: 'Poppins', sans-serif;
-    background-color: #eeeeee;
-    transition: 0.3s ease;
+.gamecontainer .score .shotrangeselection .shotbtn {
+  padding: 20px;
+  border: none;
+  border-radius: 10px;
+  margin-right: 10px;
+  cursor: pointer;
+  font-size: 20px;
+  font-family: "Poppins", sans-serif;
+  background-color: #eeeeee;
+  transition: 0.3s ease;
 }
-.gamecontainer .score .secondinnings{
-    justify-content: center !important;
-    display: grid;
+.gamecontainer .score .secondinnings {
+  justify-content: center !important;
+  display: grid;
 }
 .gamecontainer .score .defend,
-.gamecontainer .score .chase{
-    padding: 15px;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    font-size: 20px;
-    font-family: 'Poppins', sans-serif;
-    background-color: black;
-    color: white;
-    transition: 0.3s ease;
+.gamecontainer .score .chase {
+  padding: 15px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 20px;
+  font-family: "Poppins", sans-serif;
+  background-color: black;
+  color: white;
+  transition: 0.3s ease;
 }
 .gamecontainer .score .defend:hover,
-.gamecontainer .score .chase:hover{
-    background-color: rgba(0, 0, 0, 0.8);
-    transition: 0.3s ease;
+.gamecontainer .score .chase:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+  transition: 0.3s ease;
 }
-.gamecontainer .score .shotrangeselection .shotbtn:nth-of-type(1):hover{
-    background-color: rgb(209, 224, 201);
-    color: white;
+.gamecontainer .score .shotrangeselection .shotbtn:nth-of-type(1):hover {
+  background-color: rgb(209, 224, 201);
+  color: white;
 }
-.gamecontainer .score .shotrangeselection .shotbtn:nth-of-type(2):hover{
-    background-color: rgb(162, 219, 115);
-    color: white;
+.gamecontainer .score .shotrangeselection .shotbtn:nth-of-type(2):hover {
+  background-color: rgb(162, 219, 115);
+  color: white;
 }
-.gamecontainer .score .shotrangeselection .shotbtn:nth-of-type(3):hover{
-    background-color: rgb(187, 235, 111);
-    color: white;
+.gamecontainer .score .shotrangeselection .shotbtn:nth-of-type(3):hover {
+  background-color: rgb(187, 235, 111);
+  color: white;
 }
-.gamecontainer .score .shotrangeselection .shotbtn:nth-of-type(4):hover{
-    background-color: rgb(64, 206, 36);
-    color: white;
+.gamecontainer .score .shotrangeselection .shotbtn:nth-of-type(4):hover {
+  background-color: rgb(64, 206, 36);
+  color: white;
 }
-.gamecontainer .score .shotrangeselection .shotbtn:nth-of-type(5):hover{
-    background-color: rgb(231, 98, 98);
-    color: white;
+.gamecontainer .score .shotrangeselection .shotbtn:nth-of-type(5):hover {
+  background-color: rgb(231, 98, 98);
+  color: white;
 }
-.gamecontainer .score .shotrangeselection .shotbtn:nth-of-type(6):hover{
-    background-color: red;
-    color: white;
+.gamecontainer .score .shotrangeselection .shotbtn:nth-of-type(6):hover {
+  background-color: red;
+  color: white;
 }
 
-.gamecontainer .score .scores{
-    display: flex;
-    justify-content: center;
-    margin-top: 30px;
-    transition: 0.3s ease;
+.gamecontainer .score .scores {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  transition: 0.3s ease;
 }
-.gamecontainer .score .run{
-    margin-right: 25px;
-    transition: 0.3s ease;
+.gamecontainer .score .run {
+  margin-right: 25px;
+  transition: 0.3s ease;
 }
 .gamecontainer .score .run h4,
-.gamecontainer .score .ball h4{
-    font-size: 32px;
-    font-weight: 700;
-    font-family: 'Poppins',sans-serif;
-    transition: 0.3s ease;
+.gamecontainer .score .ball h4 {
+  font-size: 32px;
+  font-weight: 700;
+  font-family: "Poppins", sans-serif;
+  transition: 0.3s ease;
 }
 .gamecontainer .score .run p,
-.gamecontainer .score .ball p{
-    font-size: 16px;
-    font-weight: 400;
-    font-family: 'Poppins',sans-serif;
-    transition: 0.3s ease;
+.gamecontainer .score .ball p {
+  font-size: 16px;
+  font-weight: 400;
+  font-family: "Poppins", sans-serif;
+  transition: 0.3s ease;
 }
-.hide{
-    display: none !important;
-    transition: 0.3s ease;
-} 
-.gamecontainer .playagain{
-    padding: 15px;
-    background-color: black;
-    color: white;
-    border-radius: 15px;
-    cursor: pointer;
-    border: none;
-    transition: 0.3s ease;
+.hide {
+  display: none !important;
+  transition: 0.3s ease;
 }
-.gamecontainer .playagain:hover{
-    background-color: rgba(0, 0, 0, 0.8);
-    transition: 0.3s ease;
+.gamecontainer .playagain {
+  padding: 15px;
+  background-color: black;
+  color: white;
+  border-radius: 15px;
+  cursor: pointer;
+  border: none;
+  transition: 0.3s ease;
 }
-.gamecontainer .results{
-    display: flex;
-    justify-content: center;
-    margin-top: 30px;
-    transition: 0.3s ease;
-    margin-bottom: 30px;
+.gamecontainer .playagain:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+  transition: 0.3s ease;
+}
+.gamecontainer .results {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  transition: 0.3s ease;
+  margin-bottom: 30px;
 }
 .gamecontainer .results .user,
-.gamecontainer .results .ai{
-    margin-right: 25px;
-    transition: 0.3s ease;
+.gamecontainer .results .ai {
+  margin-right: 25px;
+  transition: 0.3s ease;
 }
 .gamecontainer .results .user h4,
 .gamecontainer .results .ai h4,
-.gamecontainer .results .draw h4{
-    font-size: 32px;
-    font-weight: 700;
-    font-family: 'Poppins',sans-serif;
-    transition: 0.3s ease;
+.gamecontainer .results .draw h4 {
+  font-size: 32px;
+  font-weight: 700;
+  font-family: "Poppins", sans-serif;
+  transition: 0.3s ease;
 }
 .gamecontainer .results .user p,
 .gamecontainer .results .ai p,
-.gamecontainer .results .draw p{
-    font-size: 16px;
-    font-weight: 400;
-    font-family: 'Poppins',sans-serif;
-    transition: 0.3s ease;
+.gamecontainer .results .draw p {
+  font-size: 16px;
+  font-weight: 400;
+  font-family: "Poppins", sans-serif;
+  transition: 0.3s ease;
 }
 
-
-
-
-
+@media only screen and (max-width: 400px) {
+  #headtailgame h1 {
+    background-color: #eeeeee;
+    padding: 20px;
+    font-size: 28px;
+    font-weight: 700;
+    font-family: "Poppins", sans-serif;
+    text-align: center;
+    margin: 0;
+    transition: 0.3s ease;
+  }
+  .gamecontainer .toss h4 {
+    text-align: center;
+    font-size: 28px;
+    font-weight: 700;
+    font-family: "Poppins", sans-serif;
+    transition: 0.3s ease;
+  }
+  .gamecontainer .toss .selecttitle {
+    text-align: center;
+    font-size: 28px;
+    font-weight: 700;
+    font-family: "Poppins", sans-serif;
+    transition: 0.3s ease;
+  }
+  .gamecontainer .toss .coins img,
+  .gamecontainer .toss .selection img {
+    width: 70px;
+    height: 70px;
+    margin-right: 45px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: 0.3s ease;
+  }
+  .gamecontainer .score .shotrangeselection .shottitle {
+    text-align: center;
+    font-size: 28px;
+    font-weight: 700;
+    font-family: "Poppins", sans-serif;
+    margin-bottom: 20px;
+    transition: 0.3s ease;
+  }
+  .gamecontainer .score .shotrangeselection .notice {
+    text-align: center;
+    font-size: 20px;
+    font-weight: 700;
+    font-family: "Poppins", sans-serif;
+    margin-bottom: 20px;
+    transition: 0.3s ease;
+  }
+  .gamecontainer .score .shotrangeselection .aishot {
+    text-align: center;
+    font-size: 20px;
+    font-weight: 700;
+    font-family: "Poppins", sans-serif;
+    margin-block: 20px;
+    transition: 0.3s ease;
+  }
+  .gamecontainer .score .target {
+    text-align: center;
+    font-size: 20px;
+    font-weight: 700;
+    font-family: "Poppins", sans-serif;
+    margin-block: 20px;
+    transition: 0.3s ease;
+  }
+  .gamecontainer .score .shotrangeselection .shotbtn {
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    margin-right: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    font-family: "Poppins", sans-serif;
+    background-color: #eeeeee;
+    transition: 0.3s ease;
+  }
+}
