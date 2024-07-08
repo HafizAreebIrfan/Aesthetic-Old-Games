@@ -471,11 +471,10 @@ const playagain = () => {
     coin.style.display = "block";
     tosstitle.style.display = "block";
     selection.classList.add("hide");
-    selectiontitle.classList.add("hide");
     score.classList.add("hide");
     shottitle.classList.add("hide");
     result.classList.add("hide");
-    playbtn.classList.add("hide");
+    playgameagain.classList.add("hide");
     gamecontainer.classList.remove("move-to-top");
   };
 };
