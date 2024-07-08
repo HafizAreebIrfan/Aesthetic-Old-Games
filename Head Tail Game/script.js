@@ -72,12 +72,6 @@ const hideSelectionsmsg = () => {
     userselectmsg.classList.add("hide");
   }, 3000);
 };
-const showselectionmsg = () => {
-  setTimeout(() => {
-    aiselectmsg.classList.remove("hide");
-    userselectmsg.classList.remove("hide");
-  }, 500);
-};
 
 const usertossedhead = (usertoss, coinflipped) => {
   if (usertoss === coinflipped) {
@@ -476,7 +470,7 @@ const playagain = () => {
     aishot.innerText = "";
     coin.style.display = "block";
     tosstitle.style.display = "block";
-    selectiontitle.classList.add("hide");
+    selectiontitle.classList.remove("hide");
     selection.classList.add("hide");
     bat.style.pointerEvents = "auto";
     ball.style.pointerEvents = "auto";
@@ -485,50 +479,8 @@ const playagain = () => {
     result.classList.add("hide");
     playgameagain.classList.add("hide");
     gamecontainer.classList.remove("move-to-top");
-    aiselectmsg.innerText = "";
-    userselectmsg.innerText = "";
-    // Resetting toss selection messages
-    aiselectmsg.classList.add("hide");
-    userselectmsg.classList.add("hide");
-    
-    // Removing and re-adding event listeners for the toss
-    const headClone = head.cloneNode(true);
-    const tailClone = tail.cloneNode(true);
-
-    head.parentNode.replaceChild(headClone, head);
-    tail.parentNode.replaceChild(tailClone, tail);
-
-    head = headClone;
-    tail = tailClone;
-
-    head.addEventListener("click", () => {
-      const usertoss = head.getAttribute("class");
-      const coinflipped = coinflip();
-      usertossedhead(usertoss, coinflipped);
-    });
-
-    tail.addEventListener("click", () => {
-      const usertoss = tail.getAttribute("class");
-      const coinflipped = coinflip();
-      usertossedtail(usertoss, coinflipped);
-    });
-
-    // Hide selections message after 5 seconds
-    hideSelectionsmsg();
   };
 };
 
-// Initial event listener attachment
-head.addEventListener("click", () => {
-  const usertoss = head.getAttribute("class");
-  const coinflipped = coinflip();
-  usertossedhead(usertoss, coinflipped);
-});
-
-tail.addEventListener("click", () => {
-  const usertoss = tail.getAttribute("class");
-  const coinflipped = coinflip();
-  usertossedtail(usertoss, coinflipped);
-});
 
 /*---------END----------*/
