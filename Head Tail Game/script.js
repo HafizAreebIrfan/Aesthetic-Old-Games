@@ -481,6 +481,22 @@ const playagain = () => {
     gamecontainer.classList.remove("move-to-top");
     aiselectmsg.innerText = "";
     userselectmsg.innerText = "";
+    head.removeEventListener("click", headClickListener);
+    tail.removeEventListener("click", tailClickListener);
+    head.addEventListener("click", headClickListener);
+    tail.addEventListener("click", tailClickListener);
+    hideSelectionsmsg();
+    const headClickListener = () => {
+      const usertoss = head.getAttribute("class");
+      const coinflipped = coinflip();
+      usertossedhead(usertoss, coinflipped);
+    };
+    
+    const tailClickListener = () => {
+      const usertoss = tail.getAttribute("class");
+      const coinflipped = coinflip();
+      usertossedtail(usertoss, coinflipped);
+    };
   };
 };
 
