@@ -211,7 +211,33 @@
     background-color: rgba(0, 0, 0, 0.8);
     transition: 0.3s ease;
 }
-
+.gamecontainer .results{
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    transition: 0.3s ease;
+}
+.gamecontainer .results .user,
+.gamecontainer .results .ai{
+    margin-right: 25px;
+    transition: 0.3s ease;
+}
+.gamecontainer .results .user h4,
+.gamecontainer .results .ai h4,
+.gamecontainer .results .draw h4{
+    font-size: 32px;
+    font-weight: 700;
+    font-family: 'Poppins',sans-serif;
+    transition: 0.3s ease;
+}
+.gamecontainer .results .user p,
+.gamecontainer .results .ai p,
+.gamecontainer .results .draw p{
+    font-size: 16px;
+    font-weight: 400;
+    font-family: 'Poppins',sans-serif;
+    transition: 0.3s ease;
+}
 
 
 

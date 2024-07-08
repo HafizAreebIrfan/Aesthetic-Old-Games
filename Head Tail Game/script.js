@@ -28,6 +28,14 @@ let playagain = document.querySelector(".playagain");
 let aiselectmsg = document.querySelector(".aiselectmsg");
 let userselectmsg = document.querySelector(".userselectmsg");
 let gamecontainer = document.querySelector(".gamecontainer");
+let userwin = 0;
+let aiwin = 0;
+let draw = 0;
+const userwinsum = document.querySelector(".userwins");
+const aiwinsum = document.querySelector(".aiwins");
+const draws = document.querySelector(".draws");
+let result = document.querySelector(".results");
+
 
 const aishotselection = () => {
   const selectoptions = [1, 2, 3, 4, 5, 6];
@@ -276,6 +284,7 @@ const secondbatinning = (runscore) => {
   enableShotButtons();
   aibatting(defendruns);
 };
+
 const secondballinning = (runscore) => {
   let chaseruns = runscore;
   runscore = 0;
@@ -292,7 +301,7 @@ const secondballinning = (runscore) => {
 
 const aibatting = (defendruns) => {
   enableShotButtons();
-  notice.innerText = "Game resets, Ai Batting Now";
+  notice.innerText = "Second Innings, Ai Batting Now";
   target.innerText = `Defend ${defendruns} runs`;
   runscore = 0;
   ballscore = 0;
@@ -322,22 +331,50 @@ const handleAIBatting = (defendruns, btn) => {
       defendruns - runscore
     } run(s)`;
     notice.innerText = `${defendruns} run(s) defended successfully`;
+    result.classList.remove("hide");
+    userwin++;
+    userwinsum.innerText = `${userwin}`;
+    aiwinsum.innerText = `${aiwin}`;
+    draws.innerText = `${draw}`;
     disableShotButtons();
+    playgameagain();
   }
   if (runscore > defendruns) {
     target.innerText = `Oh no AI chase ${defendruns} run(s)`;
     notice.innerText = `${defendruns} runs chased by AI`;
+    result.classList.remove("hide");
+    aiwin++;
+    userwinsum.innerText = `${userwin}`;
+    aiwinsum.innerText = `${aiwin}`;
+    draws.innerText = `${draw}`;
     disableShotButtons();
+    playgameagain();
   } else if (ballscore === 6 && runscore < defendruns) {
     target.innerText = `Hurray!! You beat AI by ${runscore} run(s)`;
     notice.innerText = `${defendruns} run(s) defended successfully`;
+    result.classList.remove("hide");
+    userwin++;
+    userwinsum.innerText = `${userwin}`;
+    aiwinsum.innerText = `${aiwin}`;
+    draws.innerText = `${draw}`;
     disableShotButtons();
+    playgameagain();
+  }else if(defendruns === runscore && ballscore === 6 && aiselect === userselect){
+    target.innerText = `That Was Close. You Bowled Well`;
+    notice.innerText = `Match Drawn. AI made ${runscore} run(s)`;
+    result.classList.remove("hide");
+    draw++;
+    userwinsum.innerText = `${userwin}`;
+    aiwinsum.innerText = `${aiwin}`;
+    draws.innerText = `${draw}`;
+    disableShotButtons();
+    playgameagain();
   }
 };
 
 const aibowling = (chaseruns) => {
   enableShotButtons();
-  notice.innerText = "Game resets, Ai Bowling Now";
+  notice.innerText = "Second Innings, Ai Bowling Now";
   target.innerText = `Chase ${chaseruns} runs`;
   runscore = 0;
   ballscore = 0;
@@ -355,7 +392,7 @@ const handleAIbowling = (chaseruns, btn) => {
   const aiselect = parseInt(aishotselection());
   aishot.innerText = `AI chosen ${aiselect}`;
   secondinnings.style.visibility = "visible";
-  
+
   ballscore++;
   ballscorenum.innerText = ballscore.toString();
   if (aiselect !== userselect) {
@@ -365,17 +402,62 @@ const handleAIbowling = (chaseruns, btn) => {
   if (aiselect === userselect) {
     target.innerText = `Oh no!! AI beat you by ${chaseruns - runscore} run(s)`;
     notice.innerText = `${chaseruns} runs defended by AI`;
+    result.classList.remove("hide");
+    aiwin++;
+    userwinsum.innerText = `${userwin}`;
+    aiwinsum.innerText = `${aiwin}`;
+    draws.innerText = `${draw}`;
     disableShotButtons();
+    playgameagain();
   }
   if (runscore > chaseruns) {
     target.innerText = `Hurray, You chase ${chaseruns} run(s)`;
     notice.innerText = `${chaseruns} runs chased by you`;
+    result.classList.remove("hide");
+    userwin++;
+    userwinsum.innerText = `${userwin}`;
+    aiwinsum.innerText = `${aiwin}`;
+    draws.innerText = `${draw}`;
     disableShotButtons();
+    playgameagain();
   } else if (ballscore === 6 && runscore < chaseruns) {
     target.innerText = `Oh no!! AI beat you by ${chaseruns - runscore} run(s)`;
     notice.innerText = `${chaseruns} runs defended by AI`;
+    result.classList.remove("hide");
+    aiwin++;
+    userwinsum.innerText = `${userwin}`;
+    aiwinsum.innerText = `${aiwin}`;
+    draws.innerText = `${draw}`;
     disableShotButtons();
+    playgameagain();
+  }else if(defendruns === runscore && ballscore === 6 && aiselect === userselect){
+    target.innerText = `That Was Close. You Bowled Well`;
+    notice.innerText = `Match Drawn. AI made ${runscore} run(s)`;
+    result.classList.remove("hide");
+    draw++;
+    userwinsum.innerText = `${userwin}`;
+    aiwinsum.innerText = `${aiwin}`;
+    draws.innerText = `${draw}`;
+    disableShotButtons();
+    playgameagain();
   }
+};
+
+const playgameagain = () => {
+  playagain.onclick = () => {
+    enableShotButtons();
+    runscore = 0;
+    ballscore = 0;
+    runscorenum.innerText = runscore;
+    ballscorenum.innerText = ballscore;
+    notice.innerText = "";
+    target.innerText = "";
+    aishot.innerText = "";
+    coin.style.display = "block";
+    tosstitle.style.display = "block";
+    selection.classList.add("hide");
+    selectiontitle.classList.add("hide");
+  };
 };
 
 /*---------END----------*/
