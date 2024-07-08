@@ -14,7 +14,7 @@ const winstatus = (userchoice, compchoice) => {
     msg.style.background = "black";
     msg.style.color = "white";
     compoption.classList.remove("hide");
-    compoption.innerText = `Computer choice was: ${compchoice}`;
+    compoption.innerText = `AI choice was: ${compchoice}`;
   } else {
     let userwin = true;
     if (userchoice === "rock") {
@@ -30,7 +30,7 @@ const winstatus = (userchoice, compchoice) => {
       msg.style.color = "white";
       msg.style.border = "1px solid darkgreen";
       compoption.classList.remove("hide");
-      compoption.innerText = `Computer choice was: ${compchoice}`;
+      compoption.innerText = `AI choice was: ${compchoice}`;
       userscore++;
       userscorenum.innerText = userscore;
     } else {
@@ -39,7 +39,7 @@ const winstatus = (userchoice, compchoice) => {
       msg.style.color = "white";
       msg.style.border = "1px solid darkred";
       compoption.classList.remove("hide");
-      compoption.innerText = `Computer choice was: ${compchoice}`;
+      compoption.innerText = `AI choice was: ${compchoice}`;
       computerscore++;
       compscorenum.innerText = computerscore;
     }
@@ -53,9 +53,7 @@ const computerchoice = () => {
 };
 
 const playgame = (userchoice) => {
-  console.log("User choice = ", userchoice);
   const compchoice = computerchoice();
-  console.log("Computer choice = ", compchoice);
   winstatus(userchoice, compchoice);
 };
 
