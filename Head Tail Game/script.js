@@ -53,7 +53,8 @@ const coinflip = () => {
   const randIdx = Math.floor(Math.random() * 2);
   return tossopt[randIdx];
 };
-
+aiselectmsg.classList.remove("hide");
+userselectmsg.classList.remove("hide");
 head.addEventListener("click", () => {
   const usertoss = head.getAttribute("class");
   const coinflipped = coinflip();
@@ -66,11 +67,16 @@ tail.addEventListener("click", () => {
   usertossedtail(usertoss, coinflipped);
 });
 
+const showSelectionmsg = () => {
+    aiselectmsg.classList.remove("hide");
+    userselectmsg.classList.remove("hide");
+};
+
 const hideSelectionsmsg = () => {
-  setTimeout(() => {
+  setTimeout(()=>{
     aiselectmsg.classList.add("hide");
     userselectmsg.classList.add("hide");
-  }, 3000);
+  },3000);
 };
 
 const usertossedhead = (usertoss, coinflipped) => {
@@ -81,17 +87,18 @@ const usertossedhead = (usertoss, coinflipped) => {
     selection.classList.remove("hide");
     selectiontitle.innerText = "You Won, What Would you like to do?";
   } else {
+    showSelectionmsg();
     coin.style.display = "none";
     tosstitle.style.display = "none";
     const aiselection = aiselect();
     aiselectmsg.innerText = `You lose, Ai selected to ${aiselection} first`;
     score.classList.remove("hide");
     gamecontainer.classList.add("move-to-top");
-    hideSelectionsmsg();
     notice.innerText = `NOTE: This is one over game. Ai selected to ${aiselection} first.`;
     secondinnings.display = "none";
     defend.style.display = "none";
     chase.style.display = "none";
+    hideSelectionsmsg();
     if (aiselection === "bat") {
       notice.innerText += "Try to restrict AI as early as possible.";
       secondinnings.style.display = "flex";
@@ -112,17 +119,18 @@ const usertossedtail = (usertoss, coinflipped) => {
     selection.classList.remove("hide");
     selectiontitle.innerText = "You Won, What Would you like to do?";
   } else {
+    showSelectionmsg();
     coin.style.display = "none";
     tosstitle.style.display = "none";
     const aiselection = aiselect();
     aiselectmsg.innerText = `You lose, Ai selected to ${aiselection} first`;
     score.classList.remove("hide");
     gamecontainer.classList.add("move-to-top");
-    hideSelectionsmsg();
     notice.innerText = `NOTE: This is one over game. Ai selected to ${aiselection} first.`;
     secondinnings.display = "none";
     defend.style.display = "none";
     chase.style.display = "none";
+    hideSelectionsmsg();
     if (aiselection === "bat") {
       notice.innerText += "Try to restrict AI as early as possible.";
       secondinnings.style.display = "flex";
@@ -136,6 +144,7 @@ const usertossedtail = (usertoss, coinflipped) => {
 };
 
 bat.addEventListener("click", () => {
+  showSelectionmsg();
   const userbat = bat.getAttribute("class");
   bat.style.pointerEvents = "none";
   ball.style.pointerEvents = "none";
@@ -153,6 +162,7 @@ bat.addEventListener("click", () => {
 });
 
 ball.addEventListener("click", () => {
+  showSelectionmsg();
   const userball = ball.getAttribute("class");
   bat.style.pointerEvents = "none";
   ball.style.pointerEvents = "none";
@@ -351,7 +361,7 @@ const handleAIBatting = (defendruns, btn) => {
     disableShotButtons();
     playagain();
   } else if (ballscore === 6 && runscore < defendruns) {
-    target.innerText = `Hurray!! You beat AI by ${runscore} run(s)`;
+    target.innerText = `Hurray!! You beat AI by ${defendruns - runscore} run(s)`;
     notice.innerText = `${defendruns} run(s) defended successfully`;
     result.classList.remove("hide");
     playgameagain.classList.remove("hide");
@@ -479,20 +489,9 @@ const playagain = () => {
     result.classList.add("hide");
     playgameagain.classList.add("hide");
     gamecontainer.classList.remove("move-to-top");
-    aiselectmsg.classList.add("hide");
-    userselectmsg.classList.add("hide");
+    aiselectmsg.innerText = "";
+    userselectmsg.innerText = "";
   };
 };
-head.addEventListener("click", () => {
-  const usertoss = head.getAttribute("class");
-  const coinflipped = coinflip();
-  usertossedhead(usertoss, coinflipped);
-});
-
-tail.addEventListener("click", () => {
-  const usertoss = tail.getAttribute("class");
-  const coinflipped = coinflip();
-  usertossedtail(usertoss, coinflipped);
-});
 
 /*---------END----------*/
