@@ -66,12 +66,12 @@ tail.addEventListener("click", () => {
   usertossedtail(usertoss, coinflipped);
 });
 
-const hideSelectionsmsg = () => {
-  setTimeout(() => {
-    aiselectmsg.classList.add("hide");
-    userselectmsg.classList.add("hide");
-  }, 3000);
-};
+// const hideSelectionsmsg = () => {
+//   setTimeout(() => {
+//     aiselectmsg.classList.add("hide");
+//     userselectmsg.classList.add("hide");
+//   }, 3000);
+// };
 
 const usertossedhead = (usertoss, coinflipped) => {
   if (usertoss === coinflipped) {
@@ -470,7 +470,7 @@ const playagain = () => {
     aishot.innerText = "";
     coin.style.display = "block";
     tosstitle.style.display = "block";
-    selectiontitle.classList.remove("hide");
+    selectiontitle.classList.add("hide");
     selection.classList.add("hide");
     bat.style.pointerEvents = "auto";
     ball.style.pointerEvents = "auto";
