@@ -470,12 +470,17 @@ const playagain = () => {
     aishot.innerText = "";
     coin.style.display = "block";
     tosstitle.style.display = "block";
+    selectiontitle.classList.add("hide");
     selection.classList.add("hide");
+    bat.style.pointerEvents = "auto";
+    ball.style.pointerEvents = "auto";
     score.classList.add("hide");
     shottitle.classList.add("hide");
     result.classList.add("hide");
     playgameagain.classList.add("hide");
     gamecontainer.classList.remove("move-to-top");
+    aiselectmsg.innerText = "";
+    userselectmsg.innerText = "";
   };
 };
 
