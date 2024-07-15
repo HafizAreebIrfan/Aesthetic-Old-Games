@@ -18,20 +18,39 @@ const winPatterns = [
   [6, 7, 8],
 ];
 
+const aiTurn = () => {
+  let availableBoxes = [];
+  boxes.forEach((box, index) => {
+    if (box.innerText === "") {
+      availableBoxes.push(index);
+    }
+  });
+
+  if (availableBoxes.length > 0) {
+    let randomIndex = availableBoxes[Math.floor(Math.random() * availableBoxes.length)];
+    console.log(randomIndex)
+    boxes[randomIndex].innerText = "X";
+    boxes[randomIndex].style.color = "red";
+    boxes[randomIndex].disabled = true;
+    turnO = true;
+    checkwinner();
+  }
+};
+
 boxes.forEach((btn) => {
   btn.addEventListener("click", () => {
-    console.log("Box clicked");
     if (turnO) {
       btn.innerText = "O";
       btn.style.color = "green";
-      turnO = false; //means player 0 turn is over, now player X turn
-    } else {
-      btn.innerText = "X";
-      btn.style.color = "red";
-      turnO = true; //means player x turn is over, now player o turn
+      btn.disabled = true;
+      turnO = false; // means player O's turn is over, now player X's turn
+      checkwinner();
+      if (msg.innerText.includes("Congratulations") && msg.innerText.includes("Sorry")) {
+        disablebtn();
+      }else{
+        aiTurn();
+      }
     }
-    btn.disabled = true;
-    checkwinner();
   });
 });
 
@@ -57,22 +76,21 @@ const showwinner = (winner) => {
   msg.classList.remove("hide");
 };
 const draw = () => {
-    let allFilled = true;
-    for (let box of boxes) {
-      if (box.innerText === "") {
-        allFilled = false;
-        break;
-      }
+  let allFilled = true;
+  for (let box of boxes) {
+    if (box.innerText === "") {
+      allFilled = false;
+      break;
     }
-    if (allFilled) {
-      console.log("Sorry, no winner");
-      msg.innerText = "Sorry, no winner";
-      msg.classList.remove("hide");
-    }
-  };
+  }
+  if (allFilled) {
+    msg.innerText = "Sorry, no winner";
+    msg.classList.remove("hide");
+  }
+};
 
 const checkwinner = () => {
-    let winner = false;
+  let winner = false;
   for (let pattern of winPatterns) {
     let pos1val = boxes[pattern[0]].innerText;
     let pos2val = boxes[pattern[1]].innerText;
@@ -80,16 +98,15 @@ const checkwinner = () => {
 
     if (pos1val != "" && pos2val != "" && pos3val != "") {
       if (pos1val === pos2val && pos2val === pos3val) {
-        console.log("winner", pos1val);
         disablebtn();
         showwinner(pos1val);
         winner = true;
-      }   
+      }
     }
   }
-  if(!winner){
+  if (!winner) {
     draw();
-}
+  }
 };
 reset.addEventListener("click", resetGame);
 
