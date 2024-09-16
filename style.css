@@ -63,8 +63,7 @@ body {
 
 /*---Main---*/
 #home,
-#games,
-#contact {
+#games {
   padding: 70px 50px 0px 50px;
 }
 .row {
@@ -157,56 +156,6 @@ body {
 }
 .gamescol .gamebox button:hover {
   background-color: white;
-  color: #61ce70;
-  border: 1px solid #61ce70;
-}
-.infocol {
-  flex-basis: 32%;
-  background-color: #ffffff;
-  border-radius: 15px;
-  padding: 30px;
-  text-align: center;
-}
-.infocol .icon {
-  font-size: 32px;
-  color: #61ce70 !important;
-}
-.infocol h4 {
-  font-size: 18px;
-  font-weight: 700;
-  font-family: "Poppins", sans-serif;
-  margin-top: 15px;
-}
-.infocol p,
-.infocol a {
-  font-size: 16px;
-  font-weight: 400;
-  font-family: "Poppins", sans-serif;
-  color: #000000;
-}
-.contactleft,
-.contactright {
-  flex-basis: 50%;
-}
-.contactright form input,
-.contactright form textarea {
-  padding: 15px;
-  border-radius: 10px;
-  border: 1px solid #ffffff;
-  outline: none;
-  background-color: #ffffff;
-  width: 100%;
-  margin-top: 10px;
-}
-.contactright form input:nth-of-type(4) {
-  cursor: pointer;
-  background-color: #61ce70;
-  color: #ffffff;
-  border: 1px solid #61ce70;
-  transition: 0.3s ease;
-}
-.contactright form input:nth-of-type(4):hover {
-  background-color: #ffffff;
   color: #61ce70;
   border: 1px solid #61ce70;
 }
